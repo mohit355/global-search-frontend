@@ -1,0 +1,31 @@
+.search {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.search_bar {
+  width: 100%;
+}
+
+.icon {
+  color: rgb(83, 79, 79);
+  font-size: 30px;
+  position: relative;
+  top: 6px;
+  left: 45px;
+}
+
+.search_bar input {
+  width: 60%;
+  font: inherit;
+  padding: 1em 1em 1em 3em;
+  outline: none;
+  font-size: 20px;
+  font-weight: 530;
+  border-radius: 5px;
+  color: rgb(95, 86, 86);
+}
+.search-dropdown {
+  z-index: 1;
+}

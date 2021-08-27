@@ -1,0 +1,51 @@
+.company {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.company-box {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 1px 1px 3px gray;
+  padding: 15px;
+}
+
+.left-side {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.left-side div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.left-side div img {
+  width: 16px;
+  color: blue;
+  display: inline;
+}
+.center-side {
+  display: flex;
+  align-items: center;
+}
+
+.center-side img {
+  width: 24px;
+  display: inline;
+}
+
+.right-side {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.company-logo {
+  max-width: 100%;
+  width: 40%;
+  height: auto;
+  border-radius: 5px;
+}

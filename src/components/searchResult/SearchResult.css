@@ -1,0 +1,54 @@
+.searchResult {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchResult ul {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  position: relative;
+  left: 14px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  max-height: 30em;
+  overflow: auto;
+}
+
+li {
+  list-style: none;
+  text-align: left;
+  padding: 2% 4%;
+}
+li:hover {
+  cursor: pointer;
+  background: rgb(226, 224, 224);
+}
+li .company_name {
+  font-size: 20px;
+  color: black;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 2px;
+  margin-left: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.green {
+  background: rgb(140, 224, 140);
+}
+
+.blue {
+  background: rgb(70, 70, 201);
+}
+.orange {
+  background: orange;
+}
+.pink {
+  background: pink;
+}
