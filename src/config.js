@@ -1,1 +1,1 @@
-export const API = "http://localhost:4000/global-search";
+export const API = process.env.REACT_APP_BASE_URL;

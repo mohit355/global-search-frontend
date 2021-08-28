@@ -1,51 +1,165 @@
-.company {
+/* * {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+} */
+.container {
+  margin: 20px 20px;
+  box-shadow: 1px 3px 4px 4px black;
+  padding: 10px;
+  text-align: left;
+  position: absolute;
+  top: 30%;
+  left: 3%;
+  right: 3%;
+}
+.containerTop {
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+}
+.secondBox {
+  padding: 0 15px;
+}
+.secondBox h3 a {
+  text-decoration: none;
+  color: black;
+}
+.thirdBox {
   display: flex;
   justify-content: center;
-  box-sizing: border-box;
-}
-
-.company-box {
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 1px 1px 1px 3px gray;
-  padding: 15px;
-}
-
-.left-side {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.left-side div {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.left-side div img {
-  width: 16px;
-  color: blue;
-  display: inline;
-}
-.center-side {
-  display: flex;
   align-items: center;
 }
 
-.center-side img {
-  width: 24px;
-  display: inline;
-}
-
-.right-side {
+.box {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
 }
 
-.company-logo {
-  max-width: 100%;
-  width: 40%;
-  height: auto;
+.text {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+}
+.fourthBox {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 500;
+}
+.para1 {
+  margin: 3px;
+  display: inline-block;
+  padding: 2px 5px;
+  color: white;
+  height: min-content;
   border-radius: 5px;
+}
+.blue {
+  background-color: rgb(93, 93, 243);
+}
+.darkblue {
+  background-color: rgb(42, 42, 53);
+}
+.orange {
+  background-color: rgb(248, 176, 42);
+  color: black;
+}
+.grey {
+  background-color: grey;
+}
+.containerBottom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px 5px;
+}
+.para {
+  background-color: rgb(212, 240, 250);
+  padding: 2px 5px;
+  margin: 5px;
+  border-radius: 5px;
+  color: blue;
+  font-weight: 500;
+  cursor: pointer;
+}
+.para:hover {
+  background: blue;
+  color: white;
+}
+
+.icons {
+  font-size: 25px;
+}
+.fa-linkedin {
+  color: blue;
+}
+.fa-external-link-alt {
+  font-size: 10px;
+  color: blue;
+  margin-left: 5px;
+}
+
+.container1 {
+  display: flex;
+}
+.container2 {
+  display: flex;
+}
+
+.secondBox a {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .containerTop {
+    flex-direction: column;
+  }
+  .container1 {
+    display: flex;
+  }
+  .container2 {
+    display: flex;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .container1 {
+    display: flex;
+    flex-direction: column;
+  }
+  .container2 {
+    display: flex;
+  }
+  .thirdBox {
+    justify-content: start;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .container {
+    top: 20%;
+  }
+  .box {
+    padding: 2px 5px;
+  }
+  .fourthBox {
+    flex-direction: column;
+  }
+  .para1 {
+    margin: 3px 2px;
+  }
+  .containerBottom {
+    justify-content: start;
+    align-items: flex-start;
+  }
+
+  .logo {
+    width: 90px;
+    height: 90px;
+  }
 }
