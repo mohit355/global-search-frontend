@@ -7,7 +7,7 @@
 .searchResult ul {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 87%;
   position: relative;
   left: 14px;
   border: 2px solid gray;
