@@ -40,7 +40,6 @@ export const listBySearch = (params) => {
     await axios
       .get(`${API}/listBySearch?${query}`)
       .then((res) => {
-        console.log(res.data);
         dispatch(getListBySearch(res.data, queryLen, search));
       })
       .catch((err) => {

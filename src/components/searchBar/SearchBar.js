@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchResult from "../searchResult/SearchResult";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +9,6 @@ import * as actions from "../../store/actions/index";
 const SearchBar = (props) => {
   const [timer, setTimer] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  //
   const WAIT_INTERVAL = 600;
 
   const getCompanyData = (search) => {
@@ -28,7 +27,6 @@ const SearchBar = (props) => {
     setTimer(timers);
   };
 
-  console.log(isLoading);
   return (
     <div className="search">
       <div className="search_bar">
