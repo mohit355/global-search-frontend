@@ -1,23 +1,19 @@
 import React from "react";
 import "./SearchResult.css";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions/index";
 
-const SearchResult = ({
-  companyList = [],
-  queryLen = 0,
-  setSearch,
-  setCompany,
-}) => {
-  const handleOnClick = (comp_details) => {
-    console.log("clicked ", comp_details);
-    setSearch("");
-    setCompany([comp_details]);
+const SearchResult = (props) => {
+  const handleOnClick = (companyDetails) => {
+    console.log("clicked ", companyDetails);
+    props.handleResultClick(companyDetails);
   };
 
   return (
     <div className="searchResult">
       <ul>
-        {companyList && companyList.length > 0 ? (
-          companyList.map((company) => (
+        {props.companyList && props.companyList.length > 0 ? (
+          props.companyList.map((company) => (
             <li
               className="searchResult_list"
               onClick={() => {
@@ -26,8 +22,8 @@ const SearchResult = ({
               key={company._id}
             >
               <span className="company_name">
-                <strong>{company.Name.substring(0, queryLen)}</strong>
-                {company.Name.substring(queryLen)}
+                <strong>{company.Name.substring(0, props.queryLen)}</strong>
+                {company.Name.substring(props.queryLen)}
               </span>
               <span className="dot green"></span>
               <span className="dot blue"></span>
@@ -45,4 +41,20 @@ const SearchResult = ({
   );
 };
 
-export default SearchResult;
+const mapStateToProps = (state) => {
+  return {
+    handleError: state.search.handleError,
+    search: state.search.search,
+    companyList: state.search.companiesData,
+    queryLen: state.search.queryLen,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleResultClick: (companyDetails) =>
+      dispatch(actions.handleResultClick(companyDetails)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResult);

@@ -1,11 +1,12 @@
 import React from "react";
 import "./Company.css";
+import { connect } from "react-redux";
 import img from "../../images/img.PNG";
 import eLearning from "../../images/eLearning.svg";
 import linkedin from "../../images/linkedin.svg";
 import employee from "../../images/employee.svg";
 
-const Company = ({ company }) => {
+const Company = (props) => {
   return (
     <div className="company">
       <div className="company-box">
@@ -13,14 +14,14 @@ const Company = ({ company }) => {
           <img className="company-logo" src={img} alt="img" />
           <div>
             <strong>
-              <div>{company[0].Name}</div>
+              <div>{props.company[0].Name}</div>
             </strong>
             <span>
-              {company[0].Website}
+              {props.company[0].Website}
               <img src={eLearning} alt="eLearning" />
             </span>
 
-            <span>{company[0].Location}</span>
+            <span>{props.company[0].Location}</span>
             <img src={linkedin} alt="eLearning" />
           </div>
         </div>
@@ -48,4 +49,11 @@ const Company = ({ company }) => {
   );
 };
 
-export default Company;
+const mapStateToProps = (state) => {
+  return {
+    company: state.search.company,
+    searchQuery: state.search.search,
+  };
+};
+
+export default connect(mapStateToProps, null)(Company);

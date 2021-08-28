@@ -1,32 +1,23 @@
-import React, { useState } from "react";
-import { listBySearch } from "../../apiCalls";
+import React from "react";
 import SearchResult from "../searchResult/SearchResult";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./SearchBar.css";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions/index";
 
-const SearchBar = ({ setCompany }) => {
-  const [handleError, setHandleError] = useState(false);
-  const [search, setSearch] = useState("");
-  const [companyData, setCompanyData] = useState([]);
-
+const SearchBar = (props) => {
   const getCompanyData = (search) => {
-    if (search) {
-      listBySearch({ search: search }).then((response) => {
-        if (response.error) {
-          handleError(response.error);
-          setHandleError(true);
-        } else {
-          setCompanyData(response);
-        }
-      });
+    if (search.length > 0) {
+      props.getListBySearch({ search: search });
+    } else {
+      props.setSearch(search);
     }
   };
 
   const handleInputChange = (event) => {
     let search = event.target.value;
     getCompanyData(search);
-    setSearch(search);
   };
 
   return (
@@ -36,7 +27,7 @@ const SearchBar = ({ setCompany }) => {
         <input
           type="text"
           name="searchBar"
-          value={search}
+          value={props.search}
           onChange={handleInputChange}
           autoComplete="off"
           autoFocus
@@ -44,17 +35,27 @@ const SearchBar = ({ setCompany }) => {
         />
       </div>
       <div className="search-dropdown">
-        {search && search.length > 0 && (
-          <SearchResult
-            setCompany={setCompany}
-            companyList={companyData}
-            queryLen={search.length}
-            setSearch={setSearch}
-          ></SearchResult>
+        {props.search && props.search.length > 0 && (
+          <SearchResult></SearchResult>
         )}
       </div>
     </div>
   );
 };
 
-export default SearchBar;
+const mapStateToProps = (state) => {
+  return {
+    handleError: state.search.handleError,
+    search: state.search.search,
+    companyData: state.search.companiesData,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getListBySearch: (search) => dispatch(actions.listBySearch(search)),
+    setSearch: (search) => dispatch(actions.setSearch(search)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
