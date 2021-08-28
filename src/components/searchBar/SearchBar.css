@@ -28,6 +28,15 @@
     width: 92%;
   }
 }
+@media only screen and (max-width: 399px) {
+  .icon {
+    color: rgb(83, 79, 79);
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+    left: 45px;
+  }
+}
 
 .search-dropdown {
   z-index: 1;
