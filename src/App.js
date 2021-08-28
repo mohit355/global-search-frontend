@@ -10,7 +10,9 @@ function App(props) {
         <SearchBar></SearchBar>
       </div>
       <div className="company-center">
-        {props.company && props.company.length > 0 ? <Company></Company> : null}
+        {props.company && props.company.length > 0 && !props.isSearching ? (
+          <Company></Company>
+        ) : null}
       </div>
     </div>
   );
@@ -20,6 +22,7 @@ const mapStateToProps = (state) => {
   return {
     company: state.search.company,
     searchQuery: state.search.search,
+    isSearching: state.search.isSearching,
   };
 };
 

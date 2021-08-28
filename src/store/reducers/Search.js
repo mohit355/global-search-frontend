@@ -7,11 +7,18 @@ const initialState = {
   handleError: false,
   queryLen: 0,
   company: [],
+  isSearching: true,
 };
 
 // this method will set the search value/ search query
 const setSearch = (state, action) => {
-  return { ...state, search: action.search, queryLen: 0 };
+  return {
+    ...state,
+    search: action.search,
+    queryLen: action.queryLen,
+    companiesData: action.queryLen !== 0 && [],
+    isSearching: action.queryLen !== 0,
+  };
 };
 
 // this function will update the state with new list of compaines according to search value
@@ -19,8 +26,6 @@ const getListBySearch = (state, action) => {
   const newState = {
     ...state,
     companiesData: action.data,
-    queryLen: action.queryLen,
-    search: action.search,
   };
   return newState;
 };
@@ -39,6 +44,7 @@ const handleSearchResultClick = (state, action) => {
     queryLen: 0,
     search: "",
     company: [action.companyDetails],
+    isSearching: false,
   };
   return newState;
 };

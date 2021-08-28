@@ -22,10 +22,10 @@ export const errorHandler = (response) => {
 
 // set the search query value
 export const setSearch = (search) => {
-  console.log("search search ", search);
   return {
     type: actionTypes.SET_SEARCH,
     search: search,
+    queryLen: search.length,
   };
 };
 
@@ -35,8 +35,8 @@ export const listBySearch = (params) => {
   const search = params.search;
 
   const query = queryString.stringify(params);
-  return (dispatch) => {
-    fetch(`${API}/listBySearch?${query}`, {
+  return async (dispatch) => {
+    await fetch(`${API}/listBySearch?${query}`, {
       method: "GET",
     })
       .then((res) => res.json())

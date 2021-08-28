@@ -67,7 +67,9 @@ const Company = (props) => {
         </div>
         <div className="containerBottom">
           {props.company[0].Description.split(" ").map((data, index) => (
-            <p className="para">{data}</p>
+            <p key={index} className="para">
+              {data}
+            </p>
           ))}
         </div>
       </div>

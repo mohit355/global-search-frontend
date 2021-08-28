@@ -10,13 +10,12 @@ const SearchBar = (props) => {
   const getCompanyData = (search) => {
     if (search.length > 0) {
       props.getListBySearch({ search: search });
-    } else {
-      props.setSearch(search);
     }
   };
 
   const handleInputChange = (event) => {
     let search = event.target.value;
+    props.setSearch(search);
     getCompanyData(search);
   };
 
@@ -34,9 +33,10 @@ const SearchBar = (props) => {
           placeholder="Search by company name.."
         />
       </div>
+
       <div className="search-dropdown">
         {props.search && props.search.length > 0 && (
-          <SearchResult></SearchResult>
+          <SearchResult isLoading={props.isLoading}></SearchResult>
         )}
       </div>
     </div>

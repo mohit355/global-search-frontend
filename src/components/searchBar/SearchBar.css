@@ -1,6 +1,6 @@
 .search {
   display: flex;
-  padding: 30px 23px 30px 0;
+  padding: 80px 23px 30px 0;
   flex-direction: column;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .search_bar input {
-  width: 60%;
+  width: 80%;
   font: inherit;
   padding: 1em 1em 1em 3em;
   outline: none;

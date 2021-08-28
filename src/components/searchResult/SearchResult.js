@@ -5,7 +5,6 @@ import * as actions from "../../store/actions/index";
 
 const SearchResult = (props) => {
   const handleOnClick = (companyDetails) => {
-    console.log("clicked ", companyDetails);
     props.handleResultClick(companyDetails);
   };
 
@@ -34,7 +33,7 @@ const SearchResult = (props) => {
             </li>
           ))
         ) : (
-          <li>No data found</li>
+          <li>Ops! No data found</li>
         )}
       </ul>
     </div>
@@ -47,6 +46,8 @@ const mapStateToProps = (state) => {
     search: state.search.search,
     companyList: state.search.companiesData,
     queryLen: state.search.queryLen,
+    isSearched: state.search.isSearched,
+    isSearching: state.search.isSearching,
   };
 };
 
