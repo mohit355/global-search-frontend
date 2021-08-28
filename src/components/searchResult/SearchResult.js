@@ -11,7 +11,9 @@ const SearchResult = (props) => {
   return (
     <div className="searchResult">
       <ul>
-        {props.companyList && props.companyList.length > 0 ? (
+        {props.isLoading ? (
+          <li>Loading....</li>
+        ) : props.companyList && props.companyList.length > 0 ? (
           props.companyList.map((company) => (
             <li
               className="searchResult_list"

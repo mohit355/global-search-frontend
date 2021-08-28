@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionsTypes";
 import queryString from "query-string";
 import { API } from "../../config";
+import axios from "axios";
 
 // Get list of companies
 export const getListBySearch = (response, queryLen, search) => {
@@ -33,15 +34,14 @@ export const setSearch = (search) => {
 export const listBySearch = (params) => {
   const queryLen = params.search.length;
   const search = params.search;
-
   const query = queryString.stringify(params);
+
   return async (dispatch) => {
-    await fetch(`${API}/listBySearch?${query}`, {
-      method: "GET",
-    })
-      .then((res) => res.json())
+    await axios
+      .get(`${API}/listBySearch?${query}`)
       .then((res) => {
-        dispatch(getListBySearch(res, queryLen, search));
+        console.log(res.data);
+        dispatch(getListBySearch(res.data, queryLen, search));
       })
       .catch((err) => {
         dispatch(errorHandler(err));
