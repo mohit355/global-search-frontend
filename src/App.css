@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+
+.title {
+  font-family: "Times New Roman", Times, serif;
+  padding: 30px;
+}

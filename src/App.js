@@ -6,6 +6,9 @@ import { connect } from "react-redux";
 function App(props) {
   return (
     <div className="App">
+      <div className="title">
+        <h1>Welcome to Global Search by oneShot.ai</h1>
+      </div>
       <div>
         <SearchBar></SearchBar>
       </div>
