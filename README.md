@@ -5,7 +5,7 @@
 1. Node.js
 2. npm, npx, create-react-app
 
-### Procedure to run it locally
+## Procedure to run it locally
 
 1. Clone this repository
 2. run command npm install (npm i) in the main directory where package.json exists
