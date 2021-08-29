@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./SearchResult.css";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 
 const SearchResult = (props) => {
+  //
+  const [noDataFound, setNoDataFound] = useState("");
+
   const handleOnClick = (companyDetails) => {
     props.handleResultClick(companyDetails);
   };
+
+  useEffect(() => {
+    let timer = setTimeout(function () {
+      setNoDataFound("Ops!! No data found");
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <div className="searchResult">
@@ -34,8 +47,8 @@ const SearchResult = (props) => {
               <span> {company.Website} </span>
             </li>
           ))
-        ) : (
-          <li>Ops! No data found</li>
+        ) : noDataFound === "" ? null : (
+          <li>{noDataFound}</li>
         )}
       </ul>
     </div>
