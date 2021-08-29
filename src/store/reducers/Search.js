@@ -16,7 +16,6 @@ const setSearch = (state, action) => {
     ...state,
     search: action.search,
     queryLen: action.queryLen,
-    companiesData: action.queryLen !== 0 && [],
     isSearching: action.queryLen !== 0,
   };
 };

@@ -35,16 +35,20 @@ export const listBySearch = (params) => {
   const queryLen = params.search.length;
   const search = params.search;
   const query = queryString.stringify(params);
-
+  const data = [];
   return async (dispatch) => {
-    await axios
-      .get(`${API}/listBySearch?${query}`)
-      .then((res) => {
-        dispatch(getListBySearch(res.data, queryLen, search));
-      })
-      .catch((err) => {
-        dispatch(errorHandler(err));
-      });
+    if (queryLen > 0) {
+      await axios
+        .get(`${API}/listBySearch?${query}`)
+        .then((res) => {
+          dispatch(getListBySearch(res.data, queryLen, search));
+        })
+        .catch((err) => {
+          dispatch(errorHandler(err));
+        });
+    } else {
+      await dispatch(getListBySearch(data, queryLen, search));
+    }
   };
 };
 

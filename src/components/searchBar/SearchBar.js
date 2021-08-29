@@ -12,9 +12,7 @@ const SearchBar = (props) => {
   const WAIT_INTERVAL = 600;
 
   const getCompanyData = (search) => {
-    if (search.length > 0) {
-      props.getListBySearch({ search: search });
-    }
+    props.getListBySearch({ search: search });
     setIsLoading(false);
   };
 
