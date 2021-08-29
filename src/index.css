@@ -12,10 +12,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-shadow: 1px 1px 3px 3px black;
   min-height: 45rem;
+  overflow-y: scroll;
 }
 
 @media only screen and (max-width: 450px) {
   body {
     margin: 0;
+    box-shadow: none;
   }
 }

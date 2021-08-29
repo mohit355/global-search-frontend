@@ -4,7 +4,7 @@
   padding: 10px;
   text-align: left;
   position: absolute;
-  top: 36%;
+  top: 40%;
   left: 7%;
   right: 7%;
 }
@@ -125,6 +125,13 @@
     display: flex;
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .container {
+    top: 30%;
+  }
+}
+
 @media only screen and (max-width: 700px) {
   .container {
     top: 45%;
