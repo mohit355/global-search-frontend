@@ -15,7 +15,7 @@ body {
   overflow-y: scroll;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 503px) {
   body {
     margin: 0;
     box-shadow: none;
